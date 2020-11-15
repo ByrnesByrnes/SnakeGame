@@ -31,4 +31,3 @@ function move() {
 
 move()
 
-setInterval(move, 1000)
