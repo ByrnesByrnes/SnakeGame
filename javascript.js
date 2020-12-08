@@ -1,13 +1,16 @@
 const grid = document.querySelector(".grid")
 const startButton = document.getElementById("start")
 const score = document.getElementById("score")
+const gameInfo = document.getElementById("game-info")
 
 let squares = []
 let currentSnake = [2,1,0]
 let direction = 1
 const width = 10
 let snakeHead = ""
-
+let appleIndex = 0
+let currentScore = 0
+let gameSpeed = 1000
 
 function createGrid() {
     for (let i = 0; i < 100; i++ ) {
@@ -44,19 +47,41 @@ function move() {
     squares[currentSnake[0]].classList.add("snake", "snake-head")
     
     squares[currentSnake[0]].style.transform = snakeHead
-
+    
     if(squares[currentSnake[0] - direction].classList.contains('snake-head')) {
         squares[currentSnake[0] - direction].classList.remove('snake-head')
+        squares[currentSnake[1]].style.transform = "rotate(0deg)"
     }
+
+    if(squares[currentSnake[0]] === squares[appleIndex]) { //squares[currentSnake[0]].classList.contains('apple')
+        squares[appleIndex].classList.remove('apple')
+        squares[currentSnake.push(tail)]
+        currentScore += 1
+        score.textContent = currentScore
+        generateApples()
+        gameSpeed -= 100
+        console.log(gameSpeed)
+        timerId = (setInterval(move, gameSpeed))
+    }
+
+
+
 }
 move()
+console.log(gameSpeed)
+// let timerId = (setInterval(move, gameSpeed))
 
-let timerId = (setInterval(move, 1000))
 
 
 function generateApples() {
-    
+    do {
+        appleIndex = Math.floor(Math.random() * squares.length)
+       
+    } while (squares[appleIndex].classList.contains('snake'))
+    squares[appleIndex].classList.add('apple')
 }
+
+generateApples();
 /*
  39 right
  38 up
