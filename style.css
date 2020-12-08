@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -63,17 +64,17 @@ h1 {
 .snake-head:before {
     position: absolute;
     content: ":";
+    font-size: 1.9rem;
     color: #D4D4D4;
-    top: 39%;
-    
-    left: 0;
+    top: 41%;
+    left: 2;
     transform: translateY(-50%);
     z-index: 10;
 }
 
 .snake-head:after {
     position: absolute;
-    font-weight: bold;
+    font-weight: 700;
     color: red;
     content: "Y";
     left: 100%;
