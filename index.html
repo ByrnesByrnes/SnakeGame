@@ -10,21 +10,24 @@
 </head>
 <body>
     <div class="container">
+        <img src="imgs/snake-bg.png" alt="green snake">
         <div id="game-info-modal">
             <div id="game-info-content">
-               <h2>Insructions</h2>
+               <h2>Instructions</h2>
                <p>Use the arrow keys to navigate your snake around.</p>
                <p>Collect as many apples as you can until the golden apple appears to advance to the next level!</p>
                <p>Each level gets progressively harder!</p>
                <h3>Good Luck!!</h3>
-               <button>Close</button>
+               <button id="game-info-close">Close</button>
             </div>
         </div>
         <h1>Snake Game</h1>
         <button id="start">Start/Restart</button>
         <button id="game-info">Game Info</button>
-        
-        <h2>Score: <span id="score">0</span></h2>
+        <div>
+            <h2>Score: <span id="score">0</span></h2>
+            <h2>High Score: <span id="high-score">0</span></h2>
+        </div>
         <div class="grid"></div>
         <script src="javascript.js"></script>
     </div>
